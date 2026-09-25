@@ -1,17 +1,17 @@
 ---
 // src/pages/blog/[slug].astro
 import Layout from '../../layouts/Layout.astro';
-import { getCollection, render } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
+import { getBlogPost, getBlogPosts } from '../../utils/blog';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  return posts.map(p => ({ params: { slug: p.slug }, props: { post: p } }));
+  const posts = await getBlogPosts();
+  return posts.map(post => ({ params: { slug: post.slug }, props: { post } }));
 }
 
-const { post } = Astro.props as { post: CollectionEntry<'blog'> };
-const { Content } = await render(post);
-const { data } = post;
+const { post } = Astro.props;
+const mod = await import(`../../content/blog/${post.slug}.mdx`);
+const { Content } = mod;
+const { data, content } = post;
 ---
 <Layout title={`${data.title} • Ignacio Mello`} description={data.description}>
   <article class="flex-1 px-6 py-16 max-w-3xl mx-auto w-full">

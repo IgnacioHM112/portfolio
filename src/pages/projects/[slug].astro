@@ -1,16 +1,26 @@
 ---
 // src/pages/projects/[slug].astro
 import Layout from '../../layouts/Layout.astro';
-import { getCollection, getEntryBySlug } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 
 export async function getStaticPaths() {
-  const projects = await getCollection('projects');
-  return projects.map(p => ({ params: { slug: p.slug }, props: { project: p } }));
+  const projectsDir = path.join(process.cwd(), 'src/content/projects');
+  const files = await fs.readdir(projectsDir);
+  const paths = [];
+  for (const file of files) {
+    if (file.endsWith('.json')) {
+      const filePath = path.join(projectsDir, file);
+      const content = await fs.readFile(filePath, 'utf-8');
+      const data = JSON.parse(content);
+      const slug = file.replace('.json', '');
+      paths.push({ params: { slug }, props: { data } });
+    }
+  }
+  return paths;
 }
 
-const { project } = Astro.props as { project: CollectionEntry<'projects'> };
-const { data } = project;
+const { data } = Astro.props;
 ---
 <Layout title={`${data.title} • Ignacio Mello`} description={data.description}>
   <article class="flex-1 px-6 py-16 max-w-3xl mx-auto w-full">

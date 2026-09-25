@@ -1,11 +1,9 @@
 ---
 // src/pages/blog/index.astro
 import Layout from '../../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import { getBlogPosts } from '../../utils/blog';
 
-const posts = (await getCollection('blog'))
-  .filter(p => !p.data.draft)
-  .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
+const posts = await getBlogPosts();
 ---
 <Layout title="Blog • Ignacio Mello">
   <main class="flex-1 px-6 py-16 max-w-3xl mx-auto w-full">
