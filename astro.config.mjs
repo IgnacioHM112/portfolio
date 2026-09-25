@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
 
 export default defineConfig({
-  site: 'https://ignaciomello.vercel.app', // placeholder, actualizar tras deploy
+  site: 'https://portfolio-euh84kblf-personal-b8d4.vercel.app',
   integrations: [mdx(), sitemap(), icon()],
   output: 'static',
   trailingSlash: 'always',
