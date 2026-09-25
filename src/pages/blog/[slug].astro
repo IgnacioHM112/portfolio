@@ -1,0 +1,43 @@
+---
+// src/pages/blog/[slug].astro
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(p => ({ params: { slug: p.slug }, props: { post: p } }));
+}
+
+const { post } = Astro.props as { post: CollectionEntry<'blog'> };
+const { Content } = await render(post);
+const { data } = post;
+---
+<Layout title={`${data.title} • Ignacio Mello`} description={data.description}>
+  <article class="flex-1 px-6 py-16 max-w-3xl mx-auto w-full">
+    <header class="mb-8">
+      <div class="flex flex-wrap gap-2 mb-4">
+        {data.tags.map(tag => <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">{tag}</span>)}
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">{data.title}</h1>
+      <div class="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
+        <time datetime={data.pubDate}>{new Date(data.pubDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+        {data.updatedDate && <span>Actualizado: {new Date(data.updatedDate).toLocaleDateString('es-ES')}</span>}
+      </div>
+    </header>
+
+    {data.heroImage && (
+      <img src={data.heroImage} alt={data.title} class="w-full rounded-xl mb-8 shadow-lg" />
+    )}
+
+    <div class="prose dark:prose-invert max-w-none">
+      <Content />
+    </div>
+
+    <nav class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800">
+      <a href="/blog" class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:underline flex items-center gap-1">
+        ← Volver al blog
+      </a>
+    </nav>
+  </article>
+</Layout>

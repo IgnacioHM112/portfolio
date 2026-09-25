@@ -1,0 +1,35 @@
+---
+title: "Por qué elegí Astro para mi portfolio"
+description: "Comparativa rápida entre Next.js, Vite y Astro para sitios estáticos con contenido técnico."
+pubDate: "2024-01-15"
+tags: ["astro", "web-dev", "portfolio"]
+draft: false
+---
+
+## Contexto
+
+Buscaba algo **rápido**, **simple** y que me dejara escribir en **Markdown/MDX** sin configurar Webpack.
+
+## Opciones evaluadas
+
+| Framework | Build time | JS por defecto | MDX nativo | Curva aprendizaje |
+|-----------|------------|----------------|------------|-------------------|
+| Next.js   | Medio      | ❌ (hydration) | ⚠️ Config  | Media             |
+| Vite + React | Rápido   | ❌ SPA         | ⚠️ Plugin  | Baja              |
+| **Astro** | **Muy rápido** | ✅ **Islas** | ✅ **Built-in** | **Baja**      |
+
+## Decisión
+
+Astro gana por:
+1. **Zero JS por defecto** → performance real
+2. **Content Collections** → type-safe Markdown
+3. **Deploy estático nativo** → gratis en Vercel/Netlify
+4. **Islas interactivas** → React solo donde hace falta
+
+## Resultado
+
+Este portfolio se construyó en ~2 horas. El blog funciona, el RSS se genera solo y el Lighthouse da 100/100.
+
+---
+
+*¿Querés ver el código? [Repositorio en GitHub](https://github.com/IgnacioHM112/portfolio)*

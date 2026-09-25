@@ -1,17 +1,131 @@
 ---
-
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
 ---
+<Layout title="Ignacio Mello • Fullstack Developer">
+  <main class="flex-1 flex flex-col items-center px-6 py-16 max-w-4xl mx-auto w-full">
+    <!-- HERO -->
+    <section class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+        Ignacio Mello
+      </h1>
+      <p class="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
+        Fullstack Developer • Backend · Frontend · DevOps
+        <br class="hidden md:block" />
+        Construyo sistemas escalables y mantenibles.
+      </p>
+      <div class="flex gap-4 justify-center flex-wrap">
+        <a href="#projects" class="px-6 py-3 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-lg font-medium hover:opacity-90 transition">
+          Ver proyectos
+        </a>
+        <a href="/about" class="px-6 py-3 border-2 border-slate-900 dark:border-slate-100 text-slate-900 dark:text-slate-100 rounded-lg font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition">
+          Sobre mí
+        </a>
+      </div>
+    </section>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+    <!-- SKILLS -->
+    <section id="skills" class="w-full mb-16">
+      <h2 class="text-2xl font-bold mb-6">Stack técnico</h2>
+      <div class="grid gap-4 md:grid-cols-3">
+        <div class="p-6 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-semibold text-lg mb-3 flex items-center gap-2">
+            <span class="text-slate-500 dark:text-slate-400">Backend</span>
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">Node.js</span>
+            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">Python</span>
+            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">PostgreSQL</span>
+            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">Redis</span>
+          </div>
+        </div>
+        <div class="p-6 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-semibold text-lg mb-3 flex items-center gap-2">
+            <span class="text-slate-500 dark:text-slate-400">Frontend</span>
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">React</span>
+            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">TypeScript</span>
+            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">Tailwind</span>
+            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">Astro</span>
+          </div>
+        </div>
+        <div class="p-6 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-semibold text-lg mb-3 flex items-center gap-2">
+            <span class="text-slate-500 dark:text-slate-400">DevOps / Cloud</span>
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">Docker</span>
+            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">GitHub Actions</span>
+            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">Vercel</span>
+            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">Linux</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS DESTACADOS -->
+    <section id="projects" class="w-full">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold">Proyectos destacados</h2>
+        <a href="/projects" class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:underline">Ver todos →</a>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Placeholder cards; will be replaced with real projects later -->
+        <article class="p-6 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-semibold text-lg mb-2">Proyecto 1</h3>
+          <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">Descripción corta del proyecto...</p>
+          <div class="flex flex-wrap gap-1 mb-4">
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">React</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">Node</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">PostgreSQL</span>
+          </div>
+          <a href="#" class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:underline">Ver detalle →</a>
+        </article>
+        <article class="p-6 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-semibold text-lg mb-2">Proyecto 2</h3>
+          <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">Descripción corta del proyecto...</p>
+          <div class="flex flex-wrap gap-1 mb-4">
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">Python</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">FastAPI</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">Docker</span>
+          </div>
+          <a href="#" class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:underline">Ver detalle →</a>
+        </article>
+        <article class="p-6 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-semibold text-lg mb-2">Proyecto 3</h3>
+          <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">Descripción corta del proyecto...</p>
+          <div class="flex flex-wrap gap-1 mb-4">
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">React</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">Tailwind</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">Vercel</span>
+          </div>
+          <a href="#" class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:underline">Ver detalle →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA BLOG -->
+    <section class="mt-16 text-center">
+      <h2 class="text-2xl font-bold mb-3">¿Escribo sobre lo que aprendo?</h2>
+      <p class="text-slate-600 dark:text-slate-300 mb-6 max-w-xl mx-auto">
+        Artículos técnicos, decisiones de arquitectura, debugging y más.
+      </p>
+      <a href="/blog" class="px-6 py-3 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-lg font-medium hover:opacity-90 transition inline-block">
+        Leer blog
+      </a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-8 px-6">
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
+      <p>© {new Date().getFullYear()} Ignacio Mello. Hecho con Astro + Tailwind.</p>
+      <div class="flex gap-6">
+        <a href="https://github.com/IgnacioHM112" target="_blank" rel="noopener" class="hover:underline">GitHub</a>
+        <a href="https://www.linkedin.com/in/ignacio-mello-b75204405" target="_blank" rel="noopener" class="hover:underline">LinkedIn</a>
+        <a href="mailto:ignamello2002@gmail.com" class="hover:underline">Email</a>
+      </div>
+    </div>
+  </footer>
+</Layout>

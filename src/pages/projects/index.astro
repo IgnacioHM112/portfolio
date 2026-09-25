@@ -1,0 +1,67 @@
+---
+// src/pages/projects/index.astro
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects'))
+  .filter(p => !p.data.draft)
+  .sort((a, b) => new Date(b.data.startDate).valueOf() - new Date(a.data.startDate).valueOf());
+---
+<Layout title="Proyectos • Ignacio Mello">
+  <main class="flex-1 px-6 py-16 max-w-5xl mx-auto w-full">
+    <header class="mb-12">
+      <h1 class="text-3xl md:text-4xl font-bold mb-2">Proyectos</h1>
+      <p class="text-slate-600 dark:text-slate-300">
+        Selección de trabajos personales, freelance y académicos.
+      </p>
+    </header>
+
+    <!-- Filtros -->
+    <div class="flex flex-wrap gap-2 mb-8" role="group" aria-label="Filtrar por categoría">
+      <button class="filter-btn px-4 py-2 rounded-full bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-sm font-medium" data-filter="all">Todos</button>
+      <button class="filter-btn px-4 py-2 rounded-full border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 text-sm font-medium" data-filter="backend">Backend</button>
+      <button class="filter-btn px-4 py-2 rounded-full border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 text-sm font-medium" data-filter="frontend">Frontend</button>
+      <button class="filter-btn px-4 py-2 rounded-full border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 text-sm font-medium" data-filter="fullstack">Fullstack</button>
+      <button class="filter-btn px-4 py-2 rounded-full border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 text-sm font-medium" data-filter="devops">DevOps</button>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" id="projects-grid">
+      {projects.map((project) => (
+        <article class="project-card p-6 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-all duration-200 hover:shadow-lg" data-category={project.data.category}>
+          {project.data.image && (
+            <img src={project.data.image} alt="" class="w-full h-40 object-cover rounded-lg mb-4" loading="lazy" />
+          )}
+          <h2 class="font-semibold text-lg mb-2"><a href={`/projects/${project.slug}`} class="hover:underline">{project.data.title}</a></h2>
+          <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 line-clamp-2">{project.data.description}</p>
+          <div class="flex flex-wrap gap-1 mb-4">
+            {project.data.stack.slice(0, 6).map((tech) => (
+              <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">{tech}</span>
+            ))}
+          </div>
+          <div class="flex gap-4 text-sm">
+            <a href={project.data.repo} target="_blank" rel="noopener" class="font-medium text-slate-600 dark:text-slate-400 hover:underline">Código</a>
+            {project.data.demo && <a href={project.data.demo} target="_blank" rel="noopener" class="font-medium text-slate-600 dark:text-slate-400 hover:underline">Demo</a>}
+          </div>
+        </article>
+      ))}
+    </div>
+  </main>
+
+  <script is:inline>
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('bg-slate-900', 'dark:bg-slate-100', 'text-white', 'dark:text-slate-900'));
+        buttons.forEach(b => b.classList.add('border', 'border-slate-300', 'dark:border-slate-600', 'text-slate-700', 'dark:text-slate-300'));
+        btn.classList.remove('border', 'border-slate-300', 'dark:border-slate-600', 'text-slate-700', 'dark:text-slate-300');
+        btn.classList.add('bg-slate-900', 'dark:bg-slate-100', 'text-white', 'dark:text-slate-900');
+        const filter = btn.dataset.filter;
+        cards.forEach(card => {
+          card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'block' : 'none';
+        });
+      });
+    });
+  </script>
+</Layout>

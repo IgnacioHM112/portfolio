@@ -1,0 +1,91 @@
+---
+// src/pages/about.astro
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Sobre mí • Ignacio Mello">
+  <main class="flex-1 px-6 py-16 max-w-3xl mx-auto w-full">
+    <header class="mb-12">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Sobre mí</h1>
+      <p class="text-lg text-slate-600 dark:text-slate-300">
+        Desarrollador fullstack apasionado por sistemas escalables, buena arquitectura y automatización.
+      </p>
+    </header>
+
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-4">Experiencia</h2>
+      <div class="space-y-6 border-l-2 border-slate-200 dark:border-slate-700 pl-6">
+        <div class="relative">
+          <span class="absolute left-[-34px] top-1 w-8 h-8 rounded-full bg-slate-900 dark:bg-slate-100 flex items-center justify-center text-white dark:text-slate-900 text-xs font-bold">1</span>
+          <h3 class="font-semibold">Práctica / Junior Developer</h3>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Empresa X · 2023 - Actualidad</p>
+          <p class="text-slate-600 dark:text-slate-300 mt-1 text-sm">Desarrollo de APIs REST, migración a microservicios, CI/CD...</p>
+        </div>
+        <div class="relative">
+          <span class="absolute left-[-34px] top-1 w-8 h-8 rounded-full bg-slate-900 dark:bg-slate-100 flex items-center justify-center text-white dark:text-slate-900 text-xs font-bold">2</span>
+          <h3 class="font-semibold">Estudiante / Freelance</h3>
+          <p class="text-sm text-slate-500 dark:text-slate-400">2021 - 2023</p>
+          <p class="text-slate-600 dark:text-slate-300 mt-1 text-sm">Proyectos fullstack para clientes locales, stack MERN + Docker...</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-4">Stack principal</h2>
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="p-4 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-medium mb-2">Backend</h3>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">Node.js</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">Express</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">FastAPI</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">PostgreSQL</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">Redis</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">Prisma</span>
+          </div>
+        </div>
+        <div class="p-4 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-medium mb-2">Frontend</h3>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">React</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">TypeScript</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">Tailwind</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">Astro</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">Vite</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">Testing Library</span>
+          </div>
+        </div>
+        <div class="p-4 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-medium mb-2">DevOps</h3>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">Docker</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">GitHub Actions</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">Vercel</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">Railway</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">Linux</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">Nginx</span>
+          </div>
+        </div>
+        <div class="p-4 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-medium mb-2">Otros</h3>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">Git</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">REST/GraphQL</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">Testing</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">Clean Architecture</span>
+            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">Observabilidad</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-4">Contacto</h2>
+      <p class="text-slate-600 dark:text-slate-300 mb-4">
+        ¿Tenés un proyecto en mente o querés charlar? Escribime.
+      </p>
+      <a href="mailto:ignamello2002@gmail.com" class="px-6 py-3 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-lg font-medium hover:opacity-90 transition inline-block">
+        Enviar email
+      </a>
+    </section>
+  </main>
+</Layout>
