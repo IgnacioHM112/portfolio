@@ -1,0 +1,37 @@
+{
+  "title": "Depósito Enfocados MZA — Control de Stock y Ensamblaje",
+  "subtitle": "Sistema fullstack en monorepo con trazabilidad de insumos, armado de kits y Docker",
+  "description": "Sistema profesional de control de inventario y depósito desarrollado con Node.js, Express, React y MySQL. Gestiona artículos simples y compuestos (kits), movimientos de stock, alertas y contenedores Docker.",
+  "longDescription": "El Sistema de Control de Depósito para Enfocados MZA es una solución fullstack estructurada en un monorepo (`enfocados_Back` y `enfocados_Front`) creada para digitalizar y profesionalizar la operatoria diaria de almacén, ensamblaje y despacho.\n\nA diferencia de un inventario tradicional de productos planos, el sistema modela la composición dinámica de Kits y Estuches (donde 1 producto terminado se compone de múltiples materias primas e insumos). Al registrar ensamblajes o despachos, el backend actualiza de forma transaccional tanto el stock del producto final como el de cada componente individual.\n\nIncluye un panel administrativo ágil en React 18 + Tailwind CSS pensado para uso intensivo en depósito, alertas visuales de faltantes, historial inmutable de movimientos (entradas, salidas, ensamblajes y ajustes), autenticación mediante JWT + BcryptJS y entorno completamente contenerizado con Docker y Docker Compose.",
+  "stack": [
+    "Node.js",
+    "Express",
+    "MySQL 8",
+    "React 18",
+    "Tailwind CSS",
+    "Docker",
+    "JWT",
+    "Vite"
+  ],
+  "category": "fullstack",
+  "repo": "https://github.com/IgnacioHM112/Deposito-Enfocados",
+  "demo": "",
+  "featured": true,
+  "order": 4,
+  "status": "En producción",
+  "metrics": [
+    "Lógica relacional de productos compuestos (1 Kit = N Insumos)",
+    "Trazabilidad en tiempo real de entradas, ensamblajes y despachos",
+    "Despliegue reproducible con Docker y Docker Compose"
+  ],
+  "highlights": [
+    "Motor de composición dinámica de kits que descuenta automáticamente materias primas al ensamblar productos terminados",
+    "Control transaccional de movimientos de inventario: ingresos, salidas, ajustes manuales y despachos con historial detallado",
+    "Dashboard operativo con alertas de stock crítico y formularios dinámicos con cálculo automático de unidades totales",
+    "Seguridad de acceso con encriptación BcryptJS y sesiones basadas en JSON Web Tokens (JWT)",
+    "Infraestructura lista para desarrollo y producción mediante contenedores Docker y orquestación con Docker Compose"
+  ],
+  "startDate": "2026-07-01",
+  "endDate": "2026-09-21",
+  "image": ""
+}

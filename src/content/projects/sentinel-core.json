@@ -1,0 +1,38 @@
+{
+  "title": "SentinelCore — Gestión Inteligente de Seguridad Privada",
+  "subtitle": "Motor algorítmico de asignación de turnos, control de reglas laborales y presentismo diario",
+  "description": "Sistema web centralizado para gestionar cuadrantes, turnos rotativos y presentismo de personal de seguridad privada. Reemplaza flujos manuales en hojas de cálculo con un motor inteligente de asignación.",
+  "longDescription": "SentinelCore es una plataforma integral diseñada para empresas de seguridad privada (iniciando con piloto operativo en Chango Más) que reemplaza la gestión manual en Excel y Google Forms por un sistema centralizado, auditable y accesible desde cualquier dispositivo.\n\nEl corazón del sistema es su Motor de Asignación Automática: a partir de los requerimientos horarios de cada objetivo y puesto, el algoritmo propone automáticamente qué vigilador cubre cada turno validando estrictas restricciones laborales (descanso mínimo de 12 horas entre turnos, tope de 6 días consecutivos, garantía de francos de fin de semana, contabilización diferenciada de horas nocturnas 21:00–06:00 y límites mensuales configurables).\n\nAdemás, incorpora un algoritmo de distribución equitativa ('Fair Scheduling') que prioriza a los agentes con menor carga acumulada para equilibrar las horas mensuales, sugerencia inteligente de reemplazos ante ausencias imprevistas y confirmación de presentismo diario en bloque (bulk) con cálculo automático de horas extra y deudas horarias por tardanzas.",
+  "stack": [
+    "Node.js",
+    "Express",
+    "MySQL",
+    "React 18",
+    "Tailwind CSS",
+    "Google OAuth2",
+    "JWT",
+    "Jest"
+  ],
+  "category": "fullstack",
+  "repo": "https://github.com/IgnacioHM112/SentinelCore",
+  "demo": "",
+  "featured": true,
+  "order": 1,
+  "status": "En producción / Piloto",
+  "metrics": [
+    "Motor Fair Scheduling con validación de +6 reglas de convenio laboral",
+    "Confirmación de presentismo diario en 1 clic (modo Bulk)",
+    "Exportación de reportes mensuales de facturación en PDF y Excel (XLSX)"
+  ],
+  "highlights": [
+    "Motor algorítmico de asignación automática con advertencias no bloqueantes para decisiones operativas en tiempo real",
+    "Algoritmo de distribución equitativa (Fair Scheduling) que reduce la dispersión de horas mensuales entre vigiladores",
+    "Sugeridor inteligente de reemplazos ante licencias, faltas o francos respetando descansos obligatorios",
+    "Módulo de presentismo diario que calcula horas extra y deudas de recuperación automáticamente ante tardanzas",
+    "Autenticación empresarial híbrida mediante Google Sign-In (OAuth2) + JWT y control de acceso por roles (Admin / Encargado)",
+    "Sistema de auditoría completa (quién, cuándo y qué modificó) y suite de tests unitarios para el motor con Jest"
+  ],
+  "startDate": "2026-09-15",
+  "endDate": "2026-10-14",
+  "image": ""
+}

@@ -1,43 +1,62 @@
 ---
 // src/pages/blog/[slug].astro
 import Layout from '../../layouts/Layout.astro';
-import { getBlogPost, getBlogPosts } from '../../utils/blog';
+import { getBlogPosts } from '../../utils/blog';
 
 export async function getStaticPaths() {
   const posts = await getBlogPosts();
-  return posts.map(post => ({ params: { slug: post.slug }, props: { post } }));
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
 }
 
 const { post } = Astro.props;
 const mod = await import(`../../content/blog/${post.slug}.mdx`);
 const { Content } = mod;
-const { data, content } = post;
+const { data } = post;
 ---
 <Layout title={`${data.title} • Ignacio Mello`} description={data.description}>
-  <article class="flex-1 px-6 py-16 max-w-3xl mx-auto w-full">
-    <header class="mb-8">
+  <article class="flex-1 px-6 py-14 max-w-3xl mx-auto w-full">
+    <nav class="mb-8">
+      <a
+        href="/blog"
+        class="inline-flex items-center gap-2 text-xs font-mono text-slate-500 dark:text-slate-400 hover:text-emerald-500 transition"
+      >
+        ← Volver al blog técnico
+      </a>
+    </nav>
+
+    <header class="mb-10 pb-8 border-b border-slate-200 dark:border-slate-800">
       <div class="flex flex-wrap gap-2 mb-4">
-        {data.tags.map(tag => <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">{tag}</span>)}
+        {data.tags.map((tag: string) => (
+          <span class="px-2.5 py-1 text-xs font-mono bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 rounded-md">
+            #{tag}
+          </span>
+        ))}
       </div>
-      <h1 class="text-3xl md:text-4xl font-bold mb-4">{data.title}</h1>
-      <div class="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
-        <time datetime={data.pubDate}>{new Date(data.pubDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-        {data.updatedDate && <span>Actualizado: {new Date(data.updatedDate).toLocaleDateString('es-ES')}</span>}
+      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4 leading-tight">
+        {data.title}
+      </h1>
+      <p class="text-slate-600 dark:text-slate-300 text-base mb-4">
+        {data.description}
+      </p>
+      <div class="flex items-center gap-4 text-xs font-mono text-slate-500 dark:text-slate-400">
+        <span>Por Ignacio Mello</span>
+        <span>•</span>
+        <time datetime={data.pubDate}>
+          {new Date(data.pubDate).toLocaleDateString('es-AR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+        </time>
       </div>
     </header>
 
     {data.heroImage && (
-      <img src={data.heroImage} alt={data.title} class="w-full rounded-xl mb-8 shadow-lg" />
+      <img src={data.heroImage} alt={data.title} class="w-full rounded-2xl mb-8 shadow-lg" />
     )}
 
-    <div class="prose dark:prose-invert max-w-none">
+    <div class="prose-custom bg-white dark:bg-slate-900/50 p-6 sm:p-10 rounded-2xl border border-slate-200/80 dark:border-slate-800/80">
       <Content />
     </div>
-
-    <nav class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800">
-      <a href="/blog" class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:underline flex items-center gap-1">
-        ← Volver al blog
-      </a>
-    </nav>
   </article>
 </Layout>

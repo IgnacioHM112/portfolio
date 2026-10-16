@@ -1,0 +1,34 @@
+{
+  "title": "MiBar — Sistema de Gestión Gastronómica por Turnos",
+  "subtitle": "Plataforma web con menús dinámicos por franja horaria, panel CRUD y seguridad SQL en PHP y MySQL",
+  "description": "Sistema de gestión integral para bares y restaurantes. Incluye panel administrativo CRUD, menús dinámicos segmentados por turnos (Mañana/Tarde), búsqueda interactiva y autenticación por roles.",
+  "longDescription": "MiBar Management System es una aplicación web fullstack desarrollada en PHP 8 y MySQL diseñada para digitalizar la carta y la administración operativa de bares, cafeterías y restaurantes que manejan propuestas gastronómicas diferenciadas según la franja horaria.\n\nEl sistema permite segmentar el catálogo de productos por turnos (Mañana / Cafetería y Tarde / Bar), ofreciendo a los clientes una visualización dinámica con búsqueda en tiempo real, filtrado y paginación sobre una interfaz cálida y responsiva con animaciones suaves.\n\nEn el plano técnico, incorpora un panel de control administrativo completo (CRUD) protegido por sesiones y roles de usuario, e implementa Sentencias Preparadas (Prepared Statements) en todas las interacciones con MySQL para garantizar la prevención contra ataques de Inyección SQL.",
+  "stack": [
+    "PHP 8",
+    "MySQL",
+    "JavaScript",
+    "Bootstrap",
+    "HTML5 & CSS3"
+  ],
+  "category": "backend",
+  "repo": "https://github.com/IgnacioHM112/MiBar-Management-System",
+  "demo": "",
+  "featured": true,
+  "order": 6,
+  "status": "Completado",
+  "metrics": [
+    "Consultas parametrizadas (Prepared Statements) contra SQL Injection",
+    "Segmentación dinámica de catálogo por turnos (Mañana / Tarde)",
+    "Panel CRUD administrativo con control de sesiones y roles"
+  ],
+  "highlights": [
+    "Panel de administración CRUD completo para alta, edición y baja de productos gastronómicos y precios",
+    "Prevención de vulnerabilidades de Inyección SQL mediante el uso estricto de Prepared Statements en PHP/MySQL",
+    "Catálogo dinámico para comensales con filtrado por turno horario, buscador interactivo y paginación",
+    "Sistema de autenticación de administradores y registro de usuarios con manejo seguro de sesiones",
+    "Interfaz responsiva personalizada con animaciones de aparición en scroll y tipografía moderna"
+  ],
+  "startDate": "2026-04-10",
+  "endDate": "2026-05-16",
+  "image": ""
+}

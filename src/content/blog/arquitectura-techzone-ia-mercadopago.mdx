@@ -1,0 +1,31 @@
+---
+title: "Integrando IA (Llama 3) y Mercado Pago en un E-Commerce con Node.js"
+description: "Lecciones prácticas construyendo TechZone: webhooks transaccionales, facturación PDF al vuelo y un asistente de ventas con contexto del catálogo real."
+pubDate: "2026-10-10"
+tags: ["nodejs", "express", "ia", "mercadopago", "react"]
+draft: false
+---
+
+## Más allá de un CRUD de productos
+
+Cuando construí **TechZone** (`TechZone-Back` y `TechZone-Front`), quería que la plataforma resolviera problemas reales de un comercio electrónico de hardware: pagos verificables de extremo a extremo, comprobantes descargables al instante y asistencia técnica automatizada sobre el stock disponible.
+
+## 1. Asistente técnico con Groq (Llama 3) y Fallback resiliente
+
+Un comprador de hardware suele tener dudas específicas (*"¿Esta fuente alcanza para esta placa de video?"*). En lugar de un bot de respuestas fijas, integré la API de **Groq ejecutando Llama 3** dentro de un servicio dedicado en el backend:
+
+- **Inyección de contexto real:** antes de responder, el servicio consulta con Sequelize los productos activos y su stock real en MySQL para que el modelo recomiende únicamente artículos disponibles.
+- **Resiliencia con Fallback Local:** si la API externa experimenta latencia o no hay clave configurada en un entorno de pruebas, el servicio conmuta de forma transparente a un motor de respuestas local sin romper la experiencia del usuario.
+- **Automatización lista para n8n / Make:** expuse endpoints protegidos mediante middleware de `API Key` (`/api/chatbot/email`) para conectar flujos externos de atención.
+
+## 2. Flujo transaccional con Mercado Pago y PDFKit
+
+Para el checkout implementé **Mercado Pago Checkout Pro**:
+
+1. El backend valida existencias en tiempo real y genera la preferencia de pago.
+2. Mediante **Webhooks**, el servidor recibe la notificación asincrónica del pago aprobado, descuenta el stock de manera segura y actualiza la orden.
+3. Con **PDFKit**, el backend genera dinámicamente el comprobante de compra en PDF listo para descargar desde el perfil del cliente.
+
+---
+
+*Revisá la implementación completa en [TechZone-Back](https://github.com/IgnacioHM112/TechZone-Back) y [TechZone-Front](https://github.com/IgnacioHM112/TechZone-Front).*

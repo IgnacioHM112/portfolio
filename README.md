@@ -1,43 +1,39 @@
-# Astro Starter Kit: Minimal
+# 💻 Ignacio Mello — Portfolio Profesional
 
-```sh
-npm create astro@latest -- --template minimal
+Portfolio personal de ingeniería de software desarrollado con **Astro**, **Tailwind CSS** y **TypeScript**. Presenta mis sistemas fullstack, arquitecturas backend, aplicaciones móviles offline-first y artículos técnicos.
+
+🔗 **Demo en vivo:** [https://portfolio-self-eight-62.vercel.app](https://portfolio-self-eight-62.vercel.app)  
+👤 **GitHub:** [@IgnacioHM112](https://github.com/IgnacioHM112)  
+💼 **LinkedIn:** [Ignacio Mello](https://www.linkedin.com/in/ignacio-mello-b75204405/)
+
+---
+
+## 🚀 Proyectos Incluidos
+
+1. **[SentinelCore](https://github.com/IgnacioHM112/SentinelCore)** — Sistema web y motor algorítmico (*Fair Scheduling*) para gestión de turnos rotativos, validación de reglas laborales y presentismo diario en seguridad privada.
+2. **[TechZone E-Commerce](https://github.com/IgnacioHM112/TechZone-Back)** ([Frontend](https://github.com/IgnacioHM112/TechZone-Front)) — Plataforma de comercio electrónico de hardware con Node.js, React 19, Mercado Pago (Checkout Pro + Webhooks), Chatbot con IA (Groq / Llama 3) y facturación PDF.
+3. **[MiProgreso Gym](https://github.com/IgnacioHM112/miprogreso-gym)** — Aplicación móvil 100% Offline-First en React Native, Expo, TypeScript y SQLite para seguimiento de fuerza y sobrecarga progresiva.
+4. **[Depósito Enfocados MZA](https://github.com/IgnacioHM112/Deposito-Enfocados)** — Sistema fullstack en monorepo con Node.js, React, MySQL y Docker para control de stock, ensamblaje dinámico de kits y despachos.
+5. **[MAMA-Notifier](https://github.com/IgnacioHM112/MAMA-Notifier)** — Plataforma SaaS multi-usuario en FastAPI + App móvil Flutter con monitoreo Wi-Fi en segundo plano y alertas instantáneas por Telegram.
+6. **[MiBar Management System](https://github.com/IgnacioHM112/MiBar-Management-System)** — Sistema de gestión gastronómica por turnos (Mañana/Tarde) con PHP 8, MySQL (Prepared Statements) y panel CRUD.
+
+---
+
+## 🛠️ Stack del Portfolio
+
+- **Framework:** [Astro 7](https://astro.build/) (Zero-JS por defecto, generación estática ultrarrápida)
+- **Estilos:** [Tailwind CSS](https://tailwindcss.com/) con soporte nativo **Dark / Light Mode** y estética *glassmorphism*
+- **Contenido:** Proyectos tipados en JSON (`src/content/projects/*.json`) y artículos técnicos en MDX (`src/content/blog/*.mdx`)
+
+## ⚡ Comandos de Desarrollo
+
+```bash
+# Instalar dependencias
+npm install
+
+# Iniciar servidor de desarrollo (http://localhost:4321)
+npm run dev
+
+# Compilar versión de producción
+npm run build
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

@@ -1,0 +1,37 @@
+{
+  "title": "MAMA-Notifier — Alertas Automáticas de Zonas Seguras",
+  "subtitle": "Backend SaaS en FastAPI + App móvil Flutter con monitoreo Wi-Fi en background y Bot de Telegram",
+  "description": "Sistema automático de notificaciones familiares por Telegram/WhatsApp al llegar o salir de zonas seguras (casa, trabajo, facultad). Combina backend multi-usuario con FastAPI y app móvil en Flutter.",
+  "longDescription": "MAMA-Notifier es una plataforma automatizada de tranquilidad familiar que notifica instantáneamente a contactos de confianza cuando una persona ingresa o se retira de zonas seguras preconfiguradas (como el hogar, el trabajo o la universidad) sin requerir intervención manual.\n\nEl ecosistema está compuesto por un servidor SaaS multi-usuario construido con Python (FastAPI) y SQLite, un dashboard web administrativo con Jinja2 y Tailwind CSS, y una aplicación móvil multiplataforma en Flutter. La app móvil utiliza servicios en segundo plano (`flutter_foreground_task` y `WorkManager`) para detectar cambios de conexión en redes Wi-Fi seguras ('Modo Guardián') y disparar eventos hacia la API.\n\nEl backend procesa los eventos con sincronización estricta de zona horaria (Argentina UTC-3), persiste el historial de auditoría y despacha alertas inmediatas y personalizadas a través de la API de Telegram (y soporte para Twilio/WhatsApp), todo empaquetado en contenedores Docker listos para producción.",
+  "stack": [
+    "Python",
+    "FastAPI",
+    "Flutter",
+    "SQLite",
+    "Docker",
+    "Telegram Bot API",
+    "JWT",
+    "Tailwind CSS"
+  ],
+  "category": "backend",
+  "repo": "https://github.com/IgnacioHM112/MAMA-Notifier",
+  "demo": "",
+  "featured": true,
+  "order": 5,
+  "status": "Completado",
+  "metrics": [
+    "Monitoreo pasivo en background en Android/iOS (Foreground Service)",
+    "Arquitectura SaaS multi-usuario con autenticación JWT (HS256)",
+    "Sincronización horaria precisa UTC-3 y despliegue Dockerizado"
+  ],
+  "highlights": [
+    "Detección automática de llegada y salida mediante monitoreo de SSID Wi-Fi en segundo plano con Flutter Foreground Task y WorkManager",
+    "Backend SaaS multi-usuario en FastAPI con autenticación JWT y contraseñas hasheadas con Bcrypt",
+    "Despacho instantáneo de alertas personalizadas mediante Telegram Bot API sin costos de plantillas ni límites de sandbox",
+    "Dashboard web integrado para administración de contactos (Chat ID), personalización de mensajes, simulación de eventos e historial",
+    "Manejo estricto de zona horaria Argentina (UTC-3) y despliegue en un comando mediante Docker Compose"
+  ],
+  "startDate": "2026-08-20",
+  "endDate": "2026-09-27",
+  "image": ""
+}

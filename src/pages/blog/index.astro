@@ -5,32 +5,57 @@ import { getBlogPosts } from '../../utils/blog';
 
 const posts = await getBlogPosts();
 ---
-<Layout title="Blog • Ignacio Mello">
-  <main class="flex-1 px-6 py-16 max-w-3xl mx-auto w-full">
+<Layout
+  title="Blog Técnico • Ignacio Mello"
+  description="Artículos técnicos sobre arquitectura backend con Node.js, algoritmos de asignación, integraciones con IA y desarrollo fullstack."
+>
+  <main class="flex-1 px-6 py-14 max-w-4xl mx-auto w-full">
     <header class="mb-12">
-      <h1 class="text-3xl md:text-4xl font-bold mb-2">Blog técnico</h1>
-      <p class="text-slate-600 dark:text-slate-300">
-        Escribo sobre arquitectura, debugging, herramientas y decisiones técnicas.
+      <span class="text-xs font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold">
+        Bitácora de Ingeniería
+      </span>
+      <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mt-1 mb-3">
+        Blog Técnico
+      </h1>
+      <p class="text-slate-600 dark:text-slate-400 max-w-2xl text-base leading-relaxed">
+        Comparto decisiones de arquitectura, resolución de problemas reales en sistemas de producción, diseño de bases de datos e integraciones.
       </p>
     </header>
 
-    <div class="space-y-8">
-      {posts.map(post => (
-        <article class="border-b border-slate-200 dark:border-slate-800 pb-8 last:border-0">
-          <time class="text-sm text-slate-500 dark:text-slate-400" datetime={post.data.pubDate}>
-            {new Date(post.data.pubDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
-          </time>
-          <h2 class="text-xl font-bold mt-1 mb-2"><a href={`/blog/${post.slug}`} class="hover:underline">{post.data.title}</a></h2>
-          <p class="text-slate-600 dark:text-slate-300 mb-3">{post.data.description}</p>
-          <div class="flex flex-wrap gap-2">
-            {post.data.tags.map(tag => <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">{tag}</span>)}
+    <div class="space-y-6">
+      {posts.map((post) => (
+        <article class="group p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900/75 border border-slate-200/90 dark:border-slate-800/90 hover:border-emerald-500/50 transition-all duration-200">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <time class="text-xs font-mono text-emerald-600 dark:text-emerald-400" datetime={post.data.pubDate}>
+              {new Date(post.data.pubDate).toLocaleDateString('es-AR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </time>
+            <div class="flex flex-wrap gap-1.5">
+              {post.data.tags.map((tag) => (
+                <span class="px-2.5 py-0.5 text-xs font-mono bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-md border border-slate-200 dark:border-slate-700/70">
+                  #{tag}
+                </span>
+              ))}
+            </div>
           </div>
+
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors mb-2">
+            <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+          </h2>
+          <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+            {post.data.description}
+          </p>
+          <a
+            href={`/blog/${post.slug}`}
+            class="inline-flex items-center gap-1 text-xs font-mono font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
+          >
+            Leer artículo completo →
+          </a>
         </article>
       ))}
     </div>
-
-    {posts.length === 0 && (
-      <p class="text-center text-slate-500 dark:text-slate-400 py-12">Próximamente artículos...</p>
-    )}
   </main>
 </Layout>

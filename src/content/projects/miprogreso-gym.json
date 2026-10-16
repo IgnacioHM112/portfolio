@@ -1,0 +1,35 @@
+{
+  "title": "MiProgreso Gym — App Móvil Offline-First de Entrenamiento",
+  "subtitle": "Aplicación nativa en React Native, Expo y SQLite para seguimiento de fuerza y sobrecarga progresiva",
+  "description": "App móvil personal de gimnasio 100% offline-first, sin suscripciones ni anuncios. Registra rutinas, pesos, series, sobrecarga progresiva, descansos automáticos y evolución diaria.",
+  "longDescription": "MiProgreso Gym nace para resolver los problemas habituales de las aplicaciones comerciales de fitness: dependencia constante de conexión a internet dentro del gimnasio, muros de pago para visualizar datos propios y pantallas sobrecargadas difíciles de usar entre series.\n\nDesarrollada con React Native (0.86), Expo SDK y TypeScript bajo una arquitectura estrictamente Offline-First sobre SQLite local, garantiza respuesta instantánea sin depender de servidores externos. Incluye una interfaz de alto contraste en tema 'Lima Eléctrica' diseñada ergonómicamente para operarse con una sola mano durante el entrenamiento.\n\nCuenta con seguimiento en vivo de sobrecarga progresiva (mostrando las marcas exactas de la sesión anterior en cada ejercicio), diferenciación de series de calentamiento para no distorsionar cálculos de fuerza ni 1RM, temporizador de descanso automático con respuesta háptica y alertas, y portabilidad total de datos mediante backups exportables e importables en formato JSON.",
+  "stack": [
+    "React Native",
+    "Expo",
+    "TypeScript",
+    "SQLite",
+    "Offline-First"
+  ],
+  "category": "mobile",
+  "repo": "https://github.com/IgnacioHM112/miprogreso-gym",
+  "demo": "",
+  "featured": true,
+  "order": 3,
+  "status": "Activo",
+  "metrics": [
+    "100% Offline-First con persistencia relacional local en SQLite",
+    "0 ms de latencia de red en registro de series y marcas",
+    "Portabilidad completa con exportación e importación de backups JSON"
+  ],
+  "highlights": [
+    "Arquitectura 100% Offline-First sobre SQLite local que asegura disponibilidad total aun sin señal en el gimnasio",
+    "Sistema de sobrecarga progresiva ('La última vez') que muestra en cada serie el peso y repeticiones de la sesión previa",
+    "Diferenciación de series de calentamiento ('C') para mantener la precisión en métricas de volumen y cálculo de 1RM",
+    "Temporizador de descanso automático al completar series con controles rápidos (+15s / -15s) y feedback táctil háptico",
+    "Dashboard 'Hoy' con visualizador semanal de constancia, objetivos configurables y selector rápido mediante Bottom Sheet",
+    "Dueño absoluto de tus datos: sistema integrado de exportación e importación de copias de seguridad en JSON"
+  ],
+  "startDate": "2026-09-28",
+  "endDate": "2026-10-16",
+  "image": "https://raw.githubusercontent.com/IgnacioHM112/miprogreso-gym/main/assets/images/banner.jpg"
+}

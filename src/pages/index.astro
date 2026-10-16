@@ -1,131 +1,427 @@
 ---
 // src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
----
-<Layout title="Ignacio Mello • Fullstack Developer">
-  <main class="flex-1 flex flex-col items-center px-6 py-16 max-w-4xl mx-auto w-full">
-    <!-- HERO -->
-    <section class="text-center mb-16">
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-        Ignacio Mello
-      </h1>
-      <p class="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-        Fullstack Developer • Backend · Frontend · DevOps
-        <br class="hidden md:block" />
-        Construyo sistemas escalables y mantenibles.
-      </p>
-      <div class="flex gap-4 justify-center flex-wrap">
-        <a href="#projects" class="px-6 py-3 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-lg font-medium hover:opacity-90 transition">
-          Ver proyectos
-        </a>
-        <a href="/about" class="px-6 py-3 border-2 border-slate-900 dark:border-slate-100 text-slate-900 dark:text-slate-100 rounded-lg font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition">
-          Sobre mí
-        </a>
-      </div>
-    </section>
+import { getFeaturedProjects } from '../utils/projects';
+import { getBlogPosts } from '../utils/blog';
 
-    <!-- SKILLS -->
-    <section id="skills" class="w-full mb-16">
-      <h2 class="text-2xl font-bold mb-6">Stack técnico</h2>
-      <div class="grid gap-4 md:grid-cols-3">
-        <div class="p-6 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-          <h3 class="font-semibold text-lg mb-3 flex items-center gap-2">
-            <span class="text-slate-500 dark:text-slate-400">Backend</span>
-          </h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">Node.js</span>
-            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">Python</span>
-            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">PostgreSQL</span>
-            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">Redis</span>
+const featuredProjects = await getFeaturedProjects();
+const latestPosts = (await getBlogPosts()).slice(0, 3);
+
+const categoryLabels: Record<string, string> = {
+  fullstack: 'Fullstack',
+  backend: 'Backend & API',
+  mobile: 'Mobile App',
+  frontend: 'Frontend',
+  devops: 'DevOps',
+};
+---
+<Layout
+  title="Ignacio Mello • Desarrollador Backend & Fullstack"
+  description="Portfolio profesional de Ignacio Mello. Estudiante de Sistemas en la Universidad del Aconcagua (Mendoza) y Desarrollador Backend & Fullstack especializado en Node.js, React, MySQL, TypeScript y Docker."
+>
+  <main class="flex-1 max-w-6xl mx-auto px-6 pt-12 pb-8 w-full">
+    <!-- HERO SECTION -->
+    <section class="relative py-10 md:py-16 border-b border-slate-200/80 dark:border-slate-800/80">
+      <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10">
+        <div class="flex-1 text-center lg:text-left">
+          <!-- Status Badge -->
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-700 dark:text-emerald-300 text-xs font-medium mb-6">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            Disponible para oportunidades Backend / Fullstack • Mendoza, Argentina
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-5">
+            Hola, soy <span class="bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 bg-clip-text text-transparent">Ignacio Mello</span>
+          </h1>
+
+          <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-4">
+            <strong class="text-slate-900 dark:text-white font-semibold">Desarrollador Backend &amp; Fullstack</strong> y estudiante de Sistemas en la <strong class="text-slate-900 dark:text-white font-semibold">Universidad del Aconcagua (UDA)</strong>.
+          </p>
+          <p class="text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-8">
+            Diseño y construyo software que reemplaza planillas manuales por sistemas reales: desde motores algorítmicos de turnos y control de stock industrial con <span class="font-mono text-xs px-1.5 py-0.5 rounded bg-slate-200/70 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Node.js + MySQL</span>, hasta e-commerce con <span class="font-mono text-xs px-1.5 py-0.5 rounded bg-slate-200/70 dark:bg-slate-800 text-slate-800 dark:text-slate-200">IA &amp; Mercado Pago</span> y aplicaciones móviles <span class="font-mono text-xs px-1.5 py-0.5 rounded bg-slate-200/70 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Offline-First</span>.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3.5">
+            <a
+              href="#projects"
+              class="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-600 text-white font-semibold text-sm shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/35 hover:-translate-y-0.5 transition-all flex items-center gap-2"
+            >
+              Explorar proyectos
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+            <a
+              href="/about"
+              class="px-6 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-sm hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all"
+            >
+              Sobre mí &amp; CV
+            </a>
+            <a
+              href="https://github.com/IgnacioHM112"
+              target="_blank"
+              rel="noopener"
+              class="px-5 py-3 rounded-xl bg-slate-100 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium text-sm hover:text-emerald-600 dark:hover:text-emerald-400 transition-all flex items-center gap-2"
+            >
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+              </svg>
+              @IgnacioHM112
+            </a>
           </div>
         </div>
-        <div class="p-6 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-          <h3 class="font-semibold text-lg mb-3 flex items-center gap-2">
-            <span class="text-slate-500 dark:text-slate-400">Frontend</span>
-          </h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">React</span>
-            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">TypeScript</span>
-            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">Tailwind</span>
-            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">Astro</span>
+
+        <!-- Profile Card / Terminal Showcase -->
+        <div class="w-full max-w-sm lg:w-80 shrink-0">
+          <div class="relative rounded-2xl bg-white/90 dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800 p-6 shadow-xl backdrop-blur-md">
+            <div class="flex items-center gap-4 mb-5">
+              <img
+                src="https://avatars.githubusercontent.com/u/275740388?v=4"
+                alt="Ignacio Mello"
+                width="68"
+                height="68"
+                class="w-16 h-16 rounded-2xl object-cover ring-2 ring-emerald-500/40 shadow-md"
+              />
+              <div>
+                <h2 class="font-bold text-slate-900 dark:text-white text-lg leading-tight">Ignacio Mello</h2>
+                <p class="text-xs font-mono text-emerald-600 dark:text-emerald-400 mt-0.5">@IgnacioHM112</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">📍 Mendoza, Argentina</p>
+              </div>
+            </div>
+
+            <div class="space-y-2.5 text-xs font-mono bg-slate-100 dark:bg-slate-950/90 p-4 rounded-xl border border-slate-200/80 dark:border-slate-800/80">
+              <div class="flex justify-between">
+                <span class="text-slate-500">formación:</span>
+                <span class="text-slate-800 dark:text-slate-200 font-medium">Sistemas @ UDA</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-500">especialidad:</span>
+                <span class="text-emerald-600 dark:text-emerald-400 font-medium">Backend &amp; Fullstack</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-500">stack core:</span>
+                <span class="text-slate-800 dark:text-slate-200">Node · React · MySQL</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-500">mobile:</span>
+                <span class="text-slate-800 dark:text-slate-200">React Native · Flutter</span>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-slate-200/70 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+              <span>Contacto rápido:</span>
+              <a href="mailto:ignamello2002@gmail.com" class="text-emerald-600 dark:text-emerald-400 font-medium hover:underline">
+                ignamello2002@gmail.com →
+              </a>
+            </div>
           </div>
         </div>
-        <div class="p-6 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-          <h3 class="font-semibold text-lg mb-3 flex items-center gap-2">
-            <span class="text-slate-500 dark:text-slate-400">DevOps / Cloud</span>
-          </h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">Docker</span>
-            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">GitHub Actions</span>
-            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">Vercel</span>
-            <span class="px-3 py-1 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full border border-slate-200 dark:border-slate-700">Linux</span>
-          </div>
+      </div>
+
+      <!-- Quick Engineering Metrics Bar -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+        <div class="p-4 rounded-xl bg-white/70 dark:bg-slate-900/50 border border-slate-200/80 dark:border-slate-800/80">
+          <div class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400 font-mono">6+</div>
+          <div class="text-xs text-slate-600 dark:text-slate-400 mt-1">Proyectos reales documentados en GitHub</div>
+        </div>
+        <div class="p-4 rounded-xl bg-white/70 dark:bg-slate-900/50 border border-slate-200/80 dark:border-slate-800/80">
+          <div class="text-2xl font-extrabold text-cyan-600 dark:text-cyan-400 font-mono">REST &amp; SQL</div>
+          <div class="text-xs text-slate-600 dark:text-slate-400 mt-1">Arquitectura en capas, MySQL, Sequelize &amp; SQLite</div>
+        </div>
+        <div class="p-4 rounded-xl bg-white/70 dark:bg-slate-900/50 border border-slate-200/80 dark:border-slate-800/80">
+          <div class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400 font-mono">IA &amp; Pagos</div>
+          <div class="text-xs text-slate-600 dark:text-slate-400 mt-1">Mercado Pago Webhooks, Groq Llama 3 &amp; Telegram API</div>
+        </div>
+        <div class="p-4 rounded-xl bg-white/70 dark:bg-slate-900/50 border border-slate-200/80 dark:border-slate-800/80">
+          <div class="text-2xl font-extrabold text-cyan-600 dark:text-cyan-400 font-mono">Offline-First</div>
+          <div class="text-xs text-slate-600 dark:text-slate-400 mt-1">Apps móviles con React Native (Expo) y Flutter</div>
         </div>
       </div>
     </section>
 
     <!-- PROYECTOS DESTACADOS -->
-    <section id="projects" class="w-full">
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-bold">Proyectos destacados</h2>
-        <a href="/projects" class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:underline">Ver todos →</a>
+    <section id="projects" class="py-16 border-b border-slate-200/80 dark:border-slate-800/80">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold">
+            Portafolio de Ingeniería
+          </span>
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mt-1">
+            Proyectos Destacados
+          </h2>
+          <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">
+            Sistemas completos desarrollados desde el modelado de base de datos hasta el despliegue e interfaz de usuario.
+          </p>
+        </div>
+        <a
+          href="/projects"
+          class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 transition shrink-0"
+        >
+          Ver todos los proyectos
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
       </div>
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <!-- Placeholder cards; will be replaced with real projects later -->
-        <article class="p-6 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-          <h3 class="font-semibold text-lg mb-2">Proyecto 1</h3>
-          <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">Descripción corta del proyecto...</p>
-          <div class="flex flex-wrap gap-1 mb-4">
-            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">React</span>
-            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">Node</span>
-            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">PostgreSQL</span>
-          </div>
-          <a href="#" class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:underline">Ver detalle →</a>
-        </article>
-        <article class="p-6 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-          <h3 class="font-semibold text-lg mb-2">Proyecto 2</h3>
-          <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">Descripción corta del proyecto...</p>
-          <div class="flex flex-wrap gap-1 mb-4">
-            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">Python</span>
-            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">FastAPI</span>
-            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">Docker</span>
-          </div>
-          <a href="#" class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:underline">Ver detalle →</a>
-        </article>
-        <article class="p-6 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-          <h3 class="font-semibold text-lg mb-2">Proyecto 3</h3>
-          <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">Descripción corta del proyecto...</p>
-          <div class="flex flex-wrap gap-1 mb-4">
-            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">React</span>
-            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">Tailwind</span>
-            <span class="px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">Vercel</span>
-          </div>
-          <a href="#" class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:underline">Ver detalle →</a>
-        </article>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        {featuredProjects.map((project) => (
+          <article class="group relative flex flex-col justify-between rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200/90 dark:border-slate-800/90 p-6 sm:p-7 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300">
+            <div>
+              <!-- Top Meta Row -->
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class="px-3 py-1 text-xs font-mono font-medium rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20">
+                  {categoryLabels[project.category] || project.category}
+                </span>
+                {project.status && (
+                  <span class="text-xs font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    {project.status}
+                  </span>
+                )}
+              </div>
+
+              <!-- Title & Description -->
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors mb-2">
+                <a href={`/projects/${project.slug}`} class="focus:outline-none">
+                  {project.title}
+                </a>
+              </h3>
+              <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-5">
+                {project.description}
+              </p>
+
+              <!-- Key Metrics / Bullet Points -->
+              {project.metrics && project.metrics.length > 0 && (
+                <ul class="space-y-1.5 mb-5 text-xs text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-950/60 p-3.5 rounded-xl border border-slate-200/60 dark:border-slate-800/70">
+                  {project.metrics.map((metric) => (
+                    <li class="flex items-start gap-2">
+                      <span class="text-emerald-500 font-bold mt-0.5">✓</span>
+                      <span>{metric}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+
+            <div>
+              <!-- Tech Stack Pills -->
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                {project.stack.slice(0, 7).map((tech) => (
+                  <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 rounded-md border border-slate-200/80 dark:border-slate-700/70">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <!-- Action Links -->
+              <div class="pt-4 border-t border-slate-200/70 dark:border-slate-800/80 flex flex-wrap items-center justify-between gap-3 text-xs font-semibold">
+                <a
+                  href={`/projects/${project.slug}`}
+                  class="text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1"
+                >
+                  Analizar arquitectura →
+                </a>
+                <div class="flex items-center gap-3">
+                  <a
+                    href={project.repo}
+                    target="_blank"
+                    rel="noopener"
+                    class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center gap-1 transition"
+                  >
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                    </svg>
+                    {project.repoFront ? 'Repo Back' : 'GitHub'}
+                  </a>
+                  {project.repoFront && (
+                    <a
+                      href={project.repoFront}
+                      target="_blank"
+                      rel="noopener"
+                      class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center gap-1 transition"
+                    >
+                      Repo Front ↗
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
 
-    <!-- CTA BLOG -->
-    <section class="mt-16 text-center">
-      <h2 class="text-2xl font-bold mb-3">¿Escribo sobre lo que aprendo?</h2>
-      <p class="text-slate-600 dark:text-slate-300 mb-6 max-w-xl mx-auto">
-        Artículos técnicos, decisiones de arquitectura, debugging y más.
+    <!-- STACK TÉCNICO COMPLETO -->
+    <section id="skills" class="py-16 border-b border-slate-200/80 dark:border-slate-800/80">
+      <div class="mb-10">
+        <span class="text-xs font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold">
+          Tecnologías &amp; Herramientas
+        </span>
+        <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mt-1">
+          Stack Técnico
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">
+          Tecnologías aplicadas en proyectos productivos, académicos y aplicaciones móviles.
+        </p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <!-- Backend -->
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200/90 dark:border-slate-800">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-500 mb-4 font-mono font-bold">
+            {`{ }`}
+          </div>
+          <h3 class="font-bold text-slate-900 dark:text-white text-lg mb-2">Backend &amp; APIs</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
+            Diseño de APIs RESTful, lógica de negocio, autenticación y seguridad.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            {['Node.js', 'Express.js', 'Python', 'FastAPI', 'PHP 8', 'JWT Auth', 'Google OAuth2', 'BcryptJS', 'REST APIs'].map((item) => (
+              <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md border border-slate-200 dark:border-slate-700/70">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200/90 dark:border-slate-800">
+          <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-500 mb-4 font-mono font-bold">
+            SQL
+          </div>
+          <h3 class="font-bold text-slate-900 dark:text-white text-lg mb-2">Bases de Datos &amp; ORM</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
+            Modelado relacional, transacciones, auditoría de cambios y persistencia offline.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            {['MySQL 8', 'Sequelize ORM', 'SQLite (Local/SaaS)', 'Prepared Statements', 'Modelado Relacional', 'Auditoría & Logs'].map((item) => (
+              <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md border border-slate-200 dark:border-slate-700/70">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Frontend & Mobile -->
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200/90 dark:border-slate-800">
+          <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-500 mb-4 font-mono font-bold">
+            UI
+          </div>
+          <h3 class="font-bold text-slate-900 dark:text-white text-lg mb-2">Frontend &amp; Mobile</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
+            Dashboards administrativos, SPAs modernas y aplicaciones móviles nativas.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            {['React 19', 'React Native', 'Expo SDK', 'TypeScript', 'JavaScript ES6+', 'Tailwind CSS 4', 'Astro', 'Flutter', 'Vite'].map((item) => (
+              <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md border border-slate-200 dark:border-slate-700/70">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Integrations & DevOps -->
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200/90 dark:border-slate-800">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 mb-4 font-mono font-bold">
+            OPS
+          </div>
+          <h3 class="font-bold text-slate-900 dark:text-white text-lg mb-2">Integraciones &amp; DevOps</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
+            Contenedores, pasarelas de pago, LLMs, generación de reportes y testing.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            {['Docker & Compose', 'Mercado Pago API', 'Groq AI (Llama 3)', 'Cloudinary', 'Telegram Bot API', 'PDFKit & XLSX', 'Jest & Supertest', 'Git & GitHub'].map((item) => (
+              <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md border border-slate-200 dark:border-slate-700/70">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG RECIENTE -->
+    <section class="py-16">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold">
+            Bitácora de Ingeniería
+          </span>
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mt-1">
+            Artículos Técnicos Recientes
+          </h2>
+          <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">
+            Decisiones de arquitectura, diseño de algoritmos e integraciones reales en mis proyectos.
+          </p>
+        </div>
+        <a
+          href="/blog"
+          class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 transition shrink-0"
+        >
+          Ver todos los artículos →
+        </a>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-3">
+        {latestPosts.map((post) => (
+          <article class="flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200/90 dark:border-slate-800 hover:border-emerald-500/40 transition-all">
+            <div>
+              <time class="text-xs font-mono text-slate-500 dark:text-slate-400" datetime={post.data.pubDate}>
+                {new Date(post.data.pubDate).toLocaleDateString('es-AR', { year: 'numeric', month: 'short', day: 'numeric' })}
+              </time>
+              <h3 class="font-bold text-lg text-slate-900 dark:text-white mt-2 mb-2 leading-snug">
+                <a href={`/blog/${post.slug}`} class="hover:text-emerald-500 transition-colors">
+                  {post.data.title}
+                </a>
+              </h3>
+              <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 line-clamp-3">
+                {post.data.description}
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100 dark:border-slate-800/70">
+              {post.data.tags.map((tag) => (
+                <span class="px-2 py-0.5 text-[11px] font-mono bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded">
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- BANNER DE CONTACTO -->
+    <section class="mt-6 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950 dark:from-slate-900 dark:via-[#0b1324] dark:to-emerald-950/60 border border-slate-800 p-8 sm:p-12 text-center text-white shadow-2xl">
+      <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-mono text-xs mb-4">
+        ¿Buscás sumar un desarrollador a tu equipo o proyecto?
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-bold mb-3">
+        Hablemos sobre cómo puedo aportar valor
+      </h2>
+      <p class="text-slate-300 max-w-xl mx-auto text-sm sm:text-base mb-8">
+        Estoy disponible para posiciones como Desarrollador Backend / Fullstack y proyectos freelance desde Mendoza, Argentina.
       </p>
-      <a href="/blog" class="px-6 py-3 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-lg font-medium hover:opacity-90 transition inline-block">
-        Leer blog
-      </a>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="mailto:ignamello2002@gmail.com"
+          class="px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition shadow-lg shadow-emerald-500/20"
+        >
+          Enviar correo a ignamello2002@gmail.com
+        </a>
+        <a
+          href="https://www.linkedin.com/in/ignacio-mello-b75204405/"
+          target="_blank"
+          rel="noopener"
+          class="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-white font-semibold text-sm transition"
+        >
+          Conectar en LinkedIn ↗
+        </a>
+      </div>
     </section>
   </main>
-
-  <!-- FOOTER -->
-  <footer class="border-t border-slate-200 dark:border-slate-800 py-8 px-6">
-    <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
-      <p>© {new Date().getFullYear()} Ignacio Mello. Hecho con Astro + Tailwind.</p>
-      <div class="flex gap-6">
-        <a href="https://github.com/IgnacioHM112" target="_blank" rel="noopener" class="hover:underline">GitHub</a>
-        <a href="https://www.linkedin.com/in/ignacio-mello-b75204405" target="_blank" rel="noopener" class="hover:underline">LinkedIn</a>
-        <a href="mailto:ignamello2002@gmail.com" class="hover:underline">Email</a>
-      </div>
-    </div>
-  </footer>
 </Layout>

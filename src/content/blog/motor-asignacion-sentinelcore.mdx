@@ -1,0 +1,36 @@
+---
+title: "Cómo diseñé el motor de asignación de turnos en SentinelCore"
+description: "Arquitectura del algoritmo 'Fair Scheduling' en Node.js y MySQL para automatizar cuadrantes de seguridad privada respetando reglas laborales."
+pubDate: "2026-10-14"
+tags: ["nodejs", "arquitectura", "algoritmos", "mysql"]
+draft: false
+---
+
+## El problema del Excel en operaciones críticas
+
+En empresas de seguridad privada, armar los cuadrantes mensuales en hojas de cálculo genera cuellos de botella constantes: es difícil visualizar desde el celular quién está disponible ante una ausencia imprevista, y cualquier cambio manual puede romper reglas de convenio sin que nadie lo note hasta fin de mes.
+
+Al desarrollar **SentinelCore**, el objetivo principal fue construir un **Motor de Asignación Automática** que proponga quién cubre cada objetivo y puesto respetando todas las restricciones legales y operativas.
+
+## Reglas duras vs. flexibilidad operativa
+
+El motor evalúa para cada candidato y cada turno disponible un conjunto de invariantes:
+
+- **Descanso interjornada:** mínimo de 12 horas entre el fin de un turno y el inicio del siguiente.
+- **Límite de días continuos:** máximo de 6 jornadas consecutivas trabajadas.
+- **Francos de fin de semana:** garantía de al menos un sábado o domingo libre al mes.
+- **Cómputo nocturno:** separación automática de las horas comprendidas entre las `21:00` y las `06:00`.
+- **Tope mensual configurable:** control de horas máximas por vigilador para evitar recargos no planificados.
+
+### Decisiones de diseño clave
+
+1. **Algoritmo *Fair Scheduling* (Distribución Equitativa):**
+   En lugar de asignar siempre al primer vigilador válido de la lista, el motor ordena a los candidatos elegibles priorizando a quienes tienen **menor carga horaria acumulada** en el período. Esto redujo drásticamente la dispersión de horas entre el personal (pasando de rangos desbalanceados de `44–96 hs` a distribuciones parejas de `68–76 hs`).
+2. **Advertencias no bloqueantes para el Administrador:**
+   En la operación real, los requerimientos cambian con poca anticipación. Si el administrador decide forzar una asignación manual que infringe una regla, el sistema **alerta con un diagnóstico claro** de qué restricción se vulnera, pero permite confirmar la decisión dejando registro en la tabla de auditoría.
+3. **Presentismo en bloque (*Bulk Confirmation*):**
+   En vez de cargar formularios individuales, el encargado confirma la asistencia del día con un solo clic y únicamente edita las excepciones (como una tardanza, donde el sistema suma automáticamente horas extra al vigilador saliente y genera la deuda de recuperación correspondiente).
+
+---
+
+*Podés explorar la arquitectura completa y el código fuente en el [repositorio de SentinelCore en GitHub](https://github.com/IgnacioHM112/SentinelCore).*
