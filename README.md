@@ -1,6 +1,6 @@
 # 💻 Ignacio Mello — Portfolio Profesional
 
-Portfolio personal de ingeniería de software desarrollado con **Astro**, **Tailwind CSS** y **TypeScript**. Presenta mis sistemas fullstack, arquitecturas backend, aplicaciones móviles offline-first y artículos técnicos.
+Portfolio personal de ingeniería de software desarrollado con **Astro**, **Tailwind CSS** y **TypeScript**. Presenta mis proyectos fijados y destacados de GitHub: sistemas fullstack en producción, soluciones con visión e inteligencia artificial, aplicaciones móviles offline-first y artículos técnicos.
 
 🔗 **Demo en vivo:** [https://portfolio-self-eight-62.vercel.app](https://portfolio-self-eight-62.vercel.app)  
 👤 **GitHub:** [@IgnacioHM112](https://github.com/IgnacioHM112)  
@@ -8,14 +8,13 @@ Portfolio personal de ingeniería de software desarrollado con **Astro**, **Tail
 
 ---
 
-## 🚀 Proyectos Incluidos
+## 🚀 Proyectos Destacados
 
-1. **[SentinelCore](https://github.com/IgnacioHM112/SentinelCore)** — Sistema web y motor algorítmico (*Fair Scheduling*) para gestión de turnos rotativos, validación de reglas laborales y presentismo diario en seguridad privada.
-2. **[TechZone E-Commerce](https://github.com/IgnacioHM112/TechZone-Back)** ([Frontend](https://github.com/IgnacioHM112/TechZone-Front)) — Plataforma de comercio electrónico de hardware con Node.js, React 19, Mercado Pago (Checkout Pro + Webhooks), Chatbot con IA (Groq / Llama 3) y facturación PDF.
-3. **[MiProgreso Gym](https://github.com/IgnacioHM112/miprogreso-gym)** — Aplicación móvil 100% Offline-First en React Native, Expo, TypeScript y SQLite para seguimiento de fuerza y sobrecarga progresiva.
-4. **[Depósito Enfocados MZA](https://github.com/IgnacioHM112/Deposito-Enfocados)** — Sistema fullstack en monorepo con Node.js, React, MySQL y Docker para control de stock, ensamblaje dinámico de kits y despachos.
-5. **[MAMA-Notifier](https://github.com/IgnacioHM112/MAMA-Notifier)** — Plataforma SaaS multi-usuario en FastAPI + App móvil Flutter con monitoreo Wi-Fi en segundo plano y alertas instantáneas por Telegram.
-6. **[MiBar Management System](https://github.com/IgnacioHM112/MiBar-Management-System)** — Sistema de gestión gastronómica por turnos (Mañana/Tarde) con PHP 8, MySQL (Prepared Statements) y panel CRUD.
+1. **[StockDepo](https://github.com/IgnacioHM112/stockdepo)** — Sistema web local de gestión de depósito para *Enfocados Mendoza* con control de inventario por recetas (BOM), despacho multicanal, acceso móvil en red local por QR y lectura de planillas manuscritas con **Google Gemini Vision** (`Python · FastAPI · SQLite · JavaScript`).
+2. **[SentinelCore](https://github.com/IgnacioHM112/SentinelCore)** — Plataforma web para empresas de seguridad privada con motor automático de asignación de turnos (*Fair Scheduling*), validación de reglas laborales (ciclo 6x1, descansos y topes horarios) y exportación a Excel/PDF (`Node.js · Express · React · MySQL · Google OAuth 2.0`).
+3. **[TechZone E-Commerce](https://github.com/IgnacioHM112/TechZone-Back)** ([Frontend](https://github.com/IgnacioHM112/TechZone-Front)) — E-commerce de hardware fullstack con pasarela **Mercado Pago**, asistente virtual con IA (**Groq / Llama 3**), facturación automática en PDF y panel de administración (`Node.js · Express · React 19 · MySQL · Sequelize`).
+4. **[MiProgreso Gym](https://github.com/IgnacioHM112/miprogreso-gym)** — App móvil de entrenamiento 100% *offline-first* para registrar rutinas, sobrecarga progresiva, tiempos de descanso, récords de fuerza (1RM) y peso corporal (`TypeScript · React Native · Expo · SQLite · Zustand`).
+5. **[MAMA-Notifier](https://github.com/IgnacioHM112/MAMA-Notifier)** — Sistema SaaS multi-usuario y app móvil con monitoreo Wi-Fi en segundo plano y alertas automáticas de llegada o salida por Telegram (`Python · FastAPI · SQLite · Flutter · React Native · Docker`).
 
 ---
 

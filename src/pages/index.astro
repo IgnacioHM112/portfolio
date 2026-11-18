@@ -17,7 +17,7 @@ const categoryLabels: Record<string, string> = {
 ---
 <Layout
   title="Ignacio Mello • Desarrollador Backend & Fullstack"
-  description="Portfolio profesional de Ignacio Mello. Estudiante de Sistemas en la Universidad del Aconcagua (Mendoza) y Desarrollador Backend & Fullstack especializado en Node.js, React, MySQL, TypeScript y Docker."
+  description="Portfolio profesional de Ignacio Mello. Estudiante de Sistemas en la Universidad del Aconcagua (Mendoza) y Desarrollador Backend & Fullstack (Web / Mobile) especializado en Node.js, Python, FastAPI, React, React Native, MySQL, SQLite y Docker."
 >
   <main class="flex-1 max-w-6xl mx-auto px-6 pt-12 pb-8 w-full">
     <!-- HERO SECTION -->
@@ -38,10 +38,10 @@ const categoryLabels: Record<string, string> = {
           </h1>
 
           <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-4">
-            <strong class="text-slate-900 dark:text-white font-semibold">Desarrollador Backend &amp; Fullstack</strong> y estudiante de Sistemas en la <strong class="text-slate-900 dark:text-white font-semibold">Universidad del Aconcagua (UDA)</strong>.
+            <strong class="text-slate-900 dark:text-white font-semibold">Desarrollador Backend &amp; Fullstack (Web / Mobile)</strong> y estudiante de Sistemas en la <strong class="text-slate-900 dark:text-white font-semibold">Universidad del Aconcagua (UDA)</strong>.
           </p>
           <p class="text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-8">
-            Diseño y construyo software que reemplaza planillas manuales por sistemas reales: desde motores algorítmicos de turnos y control de stock industrial con <span class="font-mono text-xs px-1.5 py-0.5 rounded bg-slate-200/70 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Node.js + MySQL</span>, hasta e-commerce con <span class="font-mono text-xs px-1.5 py-0.5 rounded bg-slate-200/70 dark:bg-slate-800 text-slate-800 dark:text-slate-200">IA &amp; Mercado Pago</span> y aplicaciones móviles <span class="font-mono text-xs px-1.5 py-0.5 rounded bg-slate-200/70 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Offline-First</span>.
+            Diseño y construyo software que reemplaza planillas de papel y flujos manuales por sistemas reales: desde gestión de depósito con lectura por visión IA en <span class="font-mono text-xs px-1.5 py-0.5 rounded bg-slate-200/70 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Python + FastAPI + Gemini</span> y motores de turnos con <span class="font-mono text-xs px-1.5 py-0.5 rounded bg-slate-200/70 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Node.js + MySQL</span>, hasta e-commerce con <span class="font-mono text-xs px-1.5 py-0.5 rounded bg-slate-200/70 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Mercado Pago &amp; Llama 3</span> y apps móviles <span class="font-mono text-xs px-1.5 py-0.5 rounded bg-slate-200/70 dark:bg-slate-800 text-slate-800 dark:text-slate-200">Offline-First</span>.
           </p>
 
           <!-- CTA Buttons -->
@@ -104,11 +104,11 @@ const categoryLabels: Record<string, string> = {
               </div>
               <div class="flex justify-between">
                 <span class="text-slate-500">stack core:</span>
-                <span class="text-slate-800 dark:text-slate-200">Node · React · MySQL</span>
+                <span class="text-slate-800 dark:text-slate-200">Node · Python · MySQL</span>
               </div>
               <div class="flex justify-between">
-                <span class="text-slate-500">mobile:</span>
-                <span class="text-slate-800 dark:text-slate-200">React Native · Flutter</span>
+                <span class="text-slate-500">web &amp; mobile:</span>
+                <span class="text-slate-800 dark:text-slate-200">React · RN · Flutter</span>
               </div>
             </div>
 
@@ -125,16 +125,16 @@ const categoryLabels: Record<string, string> = {
       <!-- Quick Engineering Metrics Bar -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
         <div class="p-4 rounded-xl bg-white/70 dark:bg-slate-900/50 border border-slate-200/80 dark:border-slate-800/80">
-          <div class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400 font-mono">6+</div>
-          <div class="text-xs text-slate-600 dark:text-slate-400 mt-1">Proyectos reales documentados en GitHub</div>
+          <div class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400 font-mono">{featuredProjects.length}</div>
+          <div class="text-xs text-slate-600 dark:text-slate-400 mt-1">Proyectos principales fijados en GitHub</div>
         </div>
         <div class="p-4 rounded-xl bg-white/70 dark:bg-slate-900/50 border border-slate-200/80 dark:border-slate-800/80">
           <div class="text-2xl font-extrabold text-cyan-600 dark:text-cyan-400 font-mono">REST &amp; SQL</div>
-          <div class="text-xs text-slate-600 dark:text-slate-400 mt-1">Arquitectura en capas, MySQL, Sequelize &amp; SQLite</div>
+          <div class="text-xs text-slate-600 dark:text-slate-400 mt-1">Node.js, FastAPI, MySQL, Sequelize &amp; SQLite</div>
         </div>
         <div class="p-4 rounded-xl bg-white/70 dark:bg-slate-900/50 border border-slate-200/80 dark:border-slate-800/80">
           <div class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400 font-mono">IA &amp; Pagos</div>
-          <div class="text-xs text-slate-600 dark:text-slate-400 mt-1">Mercado Pago Webhooks, Groq Llama 3 &amp; Telegram API</div>
+          <div class="text-xs text-slate-600 dark:text-slate-400 mt-1">Gemini Vision, Llama 3, Mercado Pago &amp; Telegram</div>
         </div>
         <div class="p-4 rounded-xl bg-white/70 dark:bg-slate-900/50 border border-slate-200/80 dark:border-slate-800/80">
           <div class="text-2xl font-extrabold text-cyan-600 dark:text-cyan-400 font-mono">Offline-First</div>
@@ -169,8 +169,13 @@ const categoryLabels: Record<string, string> = {
       </div>
 
       <div class="grid gap-6 md:grid-cols-2">
-        {featuredProjects.map((project) => (
-          <article class="group relative flex flex-col justify-between rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200/90 dark:border-slate-800/90 p-6 sm:p-7 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300">
+        {featuredProjects.map((project, idx) => (
+          <article
+            class:list={[
+              'group relative flex flex-col justify-between rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200/90 dark:border-slate-800/90 p-6 sm:p-7 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300',
+              featuredProjects.length % 2 !== 0 && idx === featuredProjects.length - 1 ? 'md:col-span-2' : '',
+            ]}
+          >
             <div>
               <!-- Top Meta Row -->
               <div class="flex items-center justify-between gap-2 mb-4">
@@ -281,7 +286,7 @@ const categoryLabels: Record<string, string> = {
             Diseño de APIs RESTful, lógica de negocio, autenticación y seguridad.
           </p>
           <div class="flex flex-wrap gap-1.5">
-            {['Node.js', 'Express.js', 'Python', 'FastAPI', 'PHP 8', 'JWT Auth', 'Google OAuth2', 'BcryptJS', 'REST APIs'].map((item) => (
+            {['Node.js', 'Express', 'Python', 'FastAPI', 'REST APIs', 'JWT', 'Google OAuth 2.0', 'Bcrypt'].map((item) => (
               <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md border border-slate-200 dark:border-slate-700/70">
                 {item}
               </span>
@@ -296,10 +301,10 @@ const categoryLabels: Record<string, string> = {
           </div>
           <h3 class="font-bold text-slate-900 dark:text-white text-lg mb-2">Bases de Datos &amp; ORM</h3>
           <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
-            Modelado relacional, transacciones, auditoría de cambios y persistencia offline.
+            Modelado relacional, recetas BOM, auditoría de cambios y persistencia offline.
           </p>
           <div class="flex flex-wrap gap-1.5">
-            {['MySQL 8', 'Sequelize ORM', 'SQLite (Local/SaaS)', 'Prepared Statements', 'Modelado Relacional', 'Auditoría & Logs'].map((item) => (
+            {['MySQL', 'Sequelize ORM', 'SQLite (Local & SaaS)', 'Modelado Relacional', 'Recetas BOM', 'Auditoría & Backups'].map((item) => (
               <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md border border-slate-200 dark:border-slate-700/70">
                 {item}
               </span>
@@ -312,12 +317,12 @@ const categoryLabels: Record<string, string> = {
           <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-500 mb-4 font-mono font-bold">
             UI
           </div>
-          <h3 class="font-bold text-slate-900 dark:text-white text-lg mb-2">Frontend &amp; Mobile</h3>
+          <h3 class="font-bold text-slate-900 dark:text-white text-lg mb-2">Frontend Web &amp; Mobile</h3>
           <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
-            Dashboards administrativos, SPAs modernas y aplicaciones móviles nativas.
+            SPAs modernas, interfaces de depósito en red local y apps móviles nativas.
           </p>
           <div class="flex flex-wrap gap-1.5">
-            {['React 19', 'React Native', 'Expo SDK', 'TypeScript', 'JavaScript ES6+', 'Tailwind CSS 4', 'Astro', 'Flutter', 'Vite'].map((item) => (
+            {['React 19', 'React Native (Expo)', 'Flutter', 'TypeScript', 'JavaScript', 'Tailwind CSS 4', 'Zustand', 'Vite', 'Astro'].map((item) => (
               <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md border border-slate-200 dark:border-slate-700/70">
                 {item}
               </span>
@@ -330,12 +335,12 @@ const categoryLabels: Record<string, string> = {
           <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 mb-4 font-mono font-bold">
             OPS
           </div>
-          <h3 class="font-bold text-slate-900 dark:text-white text-lg mb-2">Integraciones &amp; DevOps</h3>
+          <h3 class="font-bold text-slate-900 dark:text-white text-lg mb-2">IA, Integraciones &amp; DevOps</h3>
           <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">
-            Contenedores, pasarelas de pago, LLMs, generación de reportes y testing.
+            Visión IA, LLMs, pasarelas de pago, bots, contenedores y testing.
           </p>
           <div class="flex flex-wrap gap-1.5">
-            {['Docker & Compose', 'Mercado Pago API', 'Groq AI (Llama 3)', 'Cloudinary', 'Telegram Bot API', 'PDFKit & XLSX', 'Jest & Supertest', 'Git & GitHub'].map((item) => (
+            {['Google Gemini Vision', 'Groq AI (Llama 3)', 'Mercado Pago', 'Telegram Bot API', 'Cloudinary', 'Docker', 'PDFKit & XLSX', 'Jest', 'Git'].map((item) => (
               <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md border border-slate-200 dark:border-slate-700/70">
                 {item}
               </span>

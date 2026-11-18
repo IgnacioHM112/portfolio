@@ -12,21 +12,34 @@ const categoryLabels: Record<string, string> = {
   frontend: 'Frontend',
   devops: 'DevOps',
 };
+
+const filterCategories = [
+  { key: 'fullstack', label: 'Fullstack' },
+  { key: 'backend', label: 'Backend & APIs' },
+  { key: 'mobile', label: 'Mobile' },
+  { key: 'frontend', label: 'Frontend' },
+  { key: 'devops', label: 'DevOps' },
+]
+  .map((cat) => ({
+    ...cat,
+    count: projects.filter((p) => p.category === cat.key).length,
+  }))
+  .filter((cat) => cat.count > 0);
 ---
 <Layout
   title="Proyectos • Ignacio Mello"
-  description="Catálogo completo de proyectos de software, sistemas de gestión, e-commerce con IA y aplicaciones móviles desarrolladas por Ignacio Mello."
+  description="Proyectos destacados y fijados en GitHub por Ignacio Mello: sistemas de gestión con IA, plataformas fullstack, e-commerce y apps móviles offline-first."
 >
   <main class="flex-1 px-6 py-14 max-w-6xl mx-auto w-full">
     <header class="mb-10">
       <span class="text-xs font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold">
-        Repositorios &amp; Casos de Estudio
+        Repositorios Fijados &amp; Casos de Estudio
       </span>
       <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mt-1 mb-3">
         Proyectos de Ingeniería
       </h1>
       <p class="text-slate-600 dark:text-slate-400 max-w-2xl text-base leading-relaxed">
-        Selección de sistemas reales, aplicaciones móviles offline-first, arquitecturas backend y proyectos académicos publicados en mi perfil de <a href="https://github.com/IgnacioHM112" target="_blank" rel="noopener" class="text-emerald-600 dark:text-emerald-400 font-medium hover:underline">GitHub (@IgnacioHM112)</a>.
+        Selección de mis proyectos destacados y fijados en <a href="https://github.com/IgnacioHM112" target="_blank" rel="noopener" class="text-emerald-600 dark:text-emerald-400 font-medium hover:underline">GitHub (@IgnacioHM112)</a>: sistemas en uso real con visión IA, plataformas fullstack, e-commerce y apps móviles offline-first.
       </p>
     </header>
 
@@ -38,24 +51,14 @@ const categoryLabels: Record<string, string> = {
       >
         Todos ({projects.length})
       </button>
-      <button
-        class="filter-btn px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 text-xs font-mono font-medium hover:border-emerald-500/40 transition-all"
-        data-filter="fullstack"
-      >
-        Fullstack ({projects.filter((p) => p.category === 'fullstack').length})
-      </button>
-      <button
-        class="filter-btn px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 text-xs font-mono font-medium hover:border-emerald-500/40 transition-all"
-        data-filter="backend"
-      >
-        Backend &amp; APIs ({projects.filter((p) => p.category === 'backend').length})
-      </button>
-      <button
-        class="filter-btn px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 text-xs font-mono font-medium hover:border-emerald-500/40 transition-all"
-        data-filter="mobile"
-      >
-        Mobile ({projects.filter((p) => p.category === 'mobile').length})
-      </button>
+      {filterCategories.map((cat) => (
+        <button
+          class="filter-btn px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 text-xs font-mono font-medium hover:border-emerald-500/40 transition-all"
+          data-filter={cat.key}
+        >
+          {cat.label} ({cat.count})
+        </button>
+      ))}
     </div>
 
     <!-- Grid de Proyectos -->

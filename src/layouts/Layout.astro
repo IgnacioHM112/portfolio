@@ -1,14 +1,17 @@
 ---
 // src/layouts/Layout.astro
+import { getProjects } from '../utils/projects';
+
 interface Props {
   title: string;
   description?: string;
 }
 const {
   title,
-  description = 'Ignacio Mello • Desarrollador Backend & Fullstack (Node.js, React, MySQL, TypeScript, Docker) en Mendoza, Argentina.',
+  description = 'Ignacio Mello • Desarrollador Backend & Fullstack (Web / Mobile) — Node.js, Python, FastAPI, React, React Native, MySQL, SQLite y Docker en Mendoza, Argentina.',
 } = Astro.props;
 
+const projectCount = (await getProjects()).length;
 const pathname = Astro.url.pathname;
 const navItems = [
   { href: '/', label: 'Inicio' },
@@ -63,7 +66,7 @@ const isActive = (href: string) => {
               <span class="text-emerald-500 font-mono text-xs">&gt;_</span>
             </span>
             <span class="text-[11px] font-mono text-slate-500 dark:text-slate-400 mt-0.5">
-              Backend &amp; Fullstack Dev
+              Backend &amp; Fullstack (Web / Mobile)
             </span>
           </div>
         </a>
@@ -186,7 +189,7 @@ const isActive = (href: string) => {
           <div class="flex flex-col gap-2 text-sm">
             <span class="font-semibold text-slate-900 dark:text-white mb-1">Navegación</span>
             <a href="/" class="text-slate-600 dark:text-slate-400 hover:text-emerald-500 transition">Inicio</a>
-            <a href="/projects" class="text-slate-600 dark:text-slate-400 hover:text-emerald-500 transition">Proyectos (6)</a>
+            <a href="/projects" class="text-slate-600 dark:text-slate-400 hover:text-emerald-500 transition">Proyectos ({projectCount})</a>
             <a href="/about" class="text-slate-600 dark:text-slate-400 hover:text-emerald-500 transition">Sobre mí &amp; Trayectoria</a>
             <a href="/blog" class="text-slate-600 dark:text-slate-400 hover:text-emerald-500 transition">Blog Técnico</a>
           </div>

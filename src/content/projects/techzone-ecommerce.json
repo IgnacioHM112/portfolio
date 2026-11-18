@@ -1,8 +1,8 @@
 {
   "title": "TechZone — E-Commerce de Hardware con IA & Mercado Pago",
   "subtitle": "Plataforma fullstack con pasarela Checkout Pro, chatbot Llama 3 y facturación PDF automática",
-  "description": "E-commerce completo para entusiastas del hardware. Integra pagos reales con Mercado Pago, asistente técnico impulsado por IA (Groq / Llama 3), gestión multimedia en Cloudinary y generación de facturas en PDF.",
-  "longDescription": "TechZone es una plataforma de comercio electrónico de alto rendimiento dividida en una arquitectura desacoplada (API REST en Node.js/Express + SPA en React 19 y Tailwind CSS 4) diseñada para la venta de hardware y componentes tecnológicos.\n\nEl backend gestiona un flujo transaccional completo con MySQL y Sequelize ORM: desde el catálogo con filtros avanzados y carrito persistente con validación de stock en tiempo real, hasta el procesamiento de pagos mediante Mercado Pago (Checkout Pro y Webhooks para actualización instantánea del estado de las órdenes) y la emisión automática de comprobantes detallados en formato PDF con PDFKit.\n\nDestaca por su Asistente Virtual de Ventas y Soporte Técnico conectado a Groq AI (Llama 3), el cual inyecta el contexto real del catálogo disponible para recomendar componentes, verificar compatibilidades y responder dudas con fallback local automático. Además, cuenta con endpoints protegidos por API Key listos para integraciones y automatizaciones con herramientas como n8n o Make.",
+  "description": "E-commerce de hardware fullstack con pasarela de pagos Mercado Pago, asistente virtual con IA (Llama 3), gestión multimedia en Cloudinary, facturación automática en PDF y panel de administración.",
+  "longDescription": "TechZone es una plataforma de comercio electrónico de alto rendimiento (proyecto universitario terminado y aprobado en la cátedra Laboratorio de Computación 3) dividida en una arquitectura desacoplada: API REST en Node.js/Express y SPA en React 19 con Tailwind CSS 4.\n\nEl backend gestiona un flujo transaccional completo con MySQL y Sequelize ORM: desde el catálogo con filtros avanzados y carrito persistente con validación de stock en tiempo real, hasta el procesamiento de pagos mediante Mercado Pago (Checkout Pro y Webhooks para actualización instantánea del estado de las órdenes) y la emisión automática de comprobantes detallados en formato PDF con PDFKit.\n\nDestaca por su Asistente Virtual de Ventas y Soporte Técnico conectado a Groq AI (Llama 3), el cual inyecta el contexto real del catálogo disponible para recomendar componentes, verificar compatibilidades y responder dudas con fallback local automático. Además, cuenta con endpoints protegidos por API Key listos para integraciones y automatizaciones con herramientas como n8n o Make.",
   "stack": [
     "Node.js",
     "Express",
@@ -21,8 +21,8 @@
   "repoFront": "https://github.com/IgnacioHM112/TechZone-Front",
   "demo": "",
   "featured": true,
-  "order": 2,
-  "status": "Completado",
+  "order": 3,
+  "status": "Terminado y aprobado",
   "metrics": [
     "Arquitectura desacoplada Backend REST + Frontend React 19",
     "Chatbot IA con contexto dinámico del catálogo en tiempo real",
@@ -33,10 +33,10 @@
     "Pasarela de pagos Mercado Pago Checkout Pro con manejo de preferencias y Webhooks transaccionales",
     "Generación dinámica de facturas y comprobantes de compra en PDF del lado del servidor mediante PDFKit",
     "Panel de administración avanzado con CRUD de inventario, recorte y optimización de imágenes previo a subida en Cloudinary",
-    "Endpoints dedicados protegidos mediante API Key (`/api/chatbot/email`) para flujos de automatización externa (n8n / Make)",
+    "Endpoints dedicados protegidos mediante API Key (/api/chatbot/email) para flujos de automatización externa (n8n / Make)",
     "Pruebas unitarias y de integración en el backend con Jest y Supertest"
   ],
   "startDate": "2026-08-10",
-  "endDate": "2026-10-10",
+  "endDate": "2026-11-16",
   "image": ""
 }

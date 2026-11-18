@@ -1,0 +1,37 @@
+{
+  "title": "StockDepo — Gestión de Depósito, Armado y Despacho con IA",
+  "subtitle": "Sistema web local en FastAPI + SQLite con recetas (BOM), QR en red local y lectura de planillas con Gemini Vision",
+  "description": "Sistema web local de gestión de depósito diseñado para Enfocados Mendoza: control de inventario por recetas (BOM), despacho multicanal, acceso móvil en red local por QR, previsión de stock y lectura de planillas manuscritas con IA.",
+  "longDescription": "StockDepo es un sistema de gestión de depósito construido a medida para Enfocados Mendoza, diseñado para reemplazar las planillas de papel por una aplicación web ágil que corre 100 % de forma local en Windows (sin servidores pagos ni dependencia de la nube), permitiendo además que todo el equipo opere en simultáneo desde celulares o tablets conectados al mismo Wi-Fi mediante un código QR generado por el propio sistema.\n\nModela el inventario en 3 niveles (Productos de venta, Componentes de armado e Insumos de embalaje) con recetas BOM (Bill of Materials): al registrar el armado de un estuche, el sistema suma las unidades terminadas y descuenta automáticamente cada pieza componente, o permite hacerlo por chat en lenguaje natural.\n\nIncorpora digitalización de planillas manuscritas mediante Google Gemini Vision (cámara del celular o imagen) con tabla de revisión editable y control anti-duplicados por huella digital por fila, despacho multicanal (Local, Revendedor, Mercado Libre y Tienda Nube) con cálculo inteligente de cajas según volumen, simulador de previsión «¿Me alcanza?», reservas de stock comprometido, backups diarios automáticos de SQLite y alertas configurables vía App y Gmail SMTP.",
+  "stack": [
+    "Python",
+    "FastAPI",
+    "SQLite",
+    "JavaScript",
+    "Google Gemini Vision",
+    "Gmail SMTP",
+    "QR LAN"
+  ],
+  "category": "fullstack",
+  "repo": "https://github.com/IgnacioHM112/stockdepo",
+  "demo": "",
+  "featured": true,
+  "order": 1,
+  "status": "Terminado y en uso",
+  "metrics": [
+    "Inventario en 3 niveles con recetas (BOM) y carga por chat híbrido",
+    "Lectura de planillas manuscritas con Gemini Vision y control anti-duplicados",
+    "100% local en LAN con acceso móvil vía QR y backups diarios automáticos"
+  ],
+  "highlights": [
+    "Control de inventario por recetas (BOM) separando productos terminados, componentes e insumos de embalaje con alertas OK/Bajo/Crítico",
+    "Digitalización de planillas en papel mediante Google Gemini Vision desde el celular con tabla editable y huella anti-duplicados por fila",
+    "Asistente híbrido con Google Gemini (contexto en vivo del stock) y fallback automático a motor local por reglas sin internet",
+    "Simulador «¿Me alcanza?» con cálculo de stock comprometido por reservas, cobertura en días y faltantes exactos de componentes",
+    "Despacho multicanal (Local, Revendedor, Mercado Libre, Tienda Nube) con regla inteligente de tamaño de cajas",
+    "Acceso simultáneo desde celulares en red Wi-Fi vía código QR, alertas programadas por Gmail SMTP y respaldos SQLite diarios"
+  ],
+  "startDate": "2026-10-01",
+  "endDate": "2026-11-18",
+  "image": ""
+}
